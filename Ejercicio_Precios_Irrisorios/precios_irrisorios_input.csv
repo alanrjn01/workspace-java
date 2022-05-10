@@ -1,0 +1,19 @@
+ID,PRODUCTO,PRECIO,COMERCIO,PROMOCION
+Número,Texto,Número (coma),Texto,Booleano
+1625,Parlante JVC,3550,Cetrogar,Si
+13456,Parlante JVC,5600,Fravega,No
+2341,Pendrive KNGS,3400.09,Garbarino,No
+26414,Pendrive KNGS,3700.42,Diamond System,Si
+2641,Pendrive KNGS,4800.45,Cetrogar,Si
+23741,Pendrive KNGS,2400.42,Fravega,No
+23741,Pendrive KNGS,2400.42,Garbarino,No
+2305,Mouse Logitech,1300.69,Fravega,Si
+2306,Mouse Logitech,1100.04,Cetrogar,Si
+2309,Mouse Logitech,1300.69,Diamond System,No
+2308,Mouse Logitech,1200.49,Garbarino,Si
+4830,Auricular HyperEquis,12430,Diamond System,No
+4831,Auricular HyperEquis,10245.03,Cetrogar,Si
+4829,Auricular HyperEquis,10245.74,Garbarino,No
+324,Xboquis Series Equis,120394.3,Cetrogar,No
+39200,Palastation Five,197983.93,Fravega,Si
+39207,Palastation Five,190983,Garbarino,Si
