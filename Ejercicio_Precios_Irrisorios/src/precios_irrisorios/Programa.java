@@ -3,8 +3,6 @@ package precios_irrisorios;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.TreeMap;
 
 public class Programa {
 
@@ -14,7 +12,7 @@ public class Programa {
 	public Programa() {
 	}
 	
-	//Método 1
+	//Ordeno ascendentemente la lista de productos cargada en el programa y la almaceno en una propiedad del programa
 	public ArrayList<Producto> productosOrdenadosAscendentemente(){
 		ArrayList<Producto> listaDeProductosAscendentemente = this.listaProductos;
 		Collections.sort(listaDeProductosAscendentemente);
@@ -22,7 +20,8 @@ public class Programa {
 		return listaDeProductosAscendentemente;
 	}
 	
-	//Método 2
+	//a partir del nombre de un producto ingresado por parámetro obtengo un arraylist con el producto
+	//o mas de un producto si es que distintas empresas poseen dicho producto al mismo precio bajo
 	public ArrayList<Producto> productoPrecioMasBajo(String nombreProducto) {
 		ArrayList<Producto> productoPrecioMasBajo = new ArrayList<Producto>();
 		int bandera=0;
@@ -37,10 +36,13 @@ public class Programa {
 		return productoPrecioMasBajo;
 	}
 	
-	//Método 3
+	//dado el nombre de un producto busco el precio más alto con promoción y sin promoción
+	//la lista al estar ordenada descendentemente el primero que se encuentra es evidentemente el de mayor precio, para agregarlo
+	//utilizo una bandera y ya las demás comprobaciones se realizan por si existe otro producto con el mismo precio pero de otra empresa
+	//el segundo for realiza lo mismo pero buscando el precio mas alto sin promocion
 	public ArrayList<Producto> productoPrecioMasAltoConPromocionYSinPromocion(String nombreProducto){
 		ArrayList<Producto> productosConPromocionYSinPromocion = new ArrayList<Producto>();
-		ArrayList<Producto> listaDeProductosDescendentemente = this.listaProductos;
+		ArrayList<Producto> listaDeProductosDescendentemente = new ArrayList<Producto>(this.listaProductosOrdenadaAscendente);
 		Collections.reverse(listaDeProductosDescendentemente);
 		int bandera=0;
 		for (Producto producto : this.listaProductosOrdenadaAscendente) {
@@ -103,7 +105,9 @@ public class Programa {
 		return productosConMejorPrecioPorEmpresa;	
 	}
 	
-	//metodo 5
+	//retorno un linkedhashmap con estados booleanos como key (indica si está en promoción o no)
+	//y valores con un linkedhashmap que posee como clave el nombre de producto y como valor el precio promedio para dicho producto
+	//con el primer for agrego en el map precios promedio con promoción por cada producto y en el segundo los que no tengan promocion
 	public LinkedHashMap<Boolean,LinkedHashMap<String,Double>> precioPromedioParaCadaProducto(){
 		LinkedHashMap<String,Double> mapaConPreciosPromedioPromocion = new LinkedHashMap<String,Double>();
 		LinkedHashMap<String,Double> mapaConPreciosPromedioSinPromocion = new LinkedHashMap<String,Double>();
@@ -113,7 +117,7 @@ public class Programa {
 				mapaConPreciosPromedioPromocion.put(this.listaProductosOrdenadaAscendente.get(i).getNombre(), this.getPrecioPromedioPromocion(this.listaProductosOrdenadaAscendente.get(i).getNombre()));
 		}
 		for (int i = 0; i < this.listaProductosOrdenadaAscendente.size(); i++) {
-			if(this.listaProductosOrdenadaAscendente.get(i).isPromocion())
+			if(!this.listaProductosOrdenadaAscendente.get(i).isPromocion())
 				mapaConPreciosPromedioSinPromocion.put(this.listaProductosOrdenadaAscendente.get(i).getNombre(), this.getPrecioPromedioSinPromocion(this.listaProductosOrdenadaAscendente.get(i).getNombre()));
 		}
 		mapas.put(true,mapaConPreciosPromedioPromocion);
@@ -123,7 +127,7 @@ public class Programa {
 	}
 	
 	
-	//metodo 6
+	//Devuelve la cantidad de productos que posee un comercio
 	public int devolverCantidadDeProductosDeUnComercio(String nombreComercio) {
 		int contador=0;
 		for (Producto producto : this.listaProductos) {
@@ -134,7 +138,8 @@ public class Programa {
 		return contador;
 	}
 	
-	//metodo que recibe por parámetro el nombre de un producto y evalua el precio de 
+	//getters de precios con promoción y sin promoción
+	
 	public double getPrecioPromedioPromocion(String nombreProducto) {
 		double almacenador=0;
 		double contador=0;

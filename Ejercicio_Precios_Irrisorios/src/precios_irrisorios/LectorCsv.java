@@ -10,8 +10,11 @@ public class LectorCsv {
 	private String lineaProducto[]; //lector de lineas para almacenar cada linea spliteada
 	private ArrayList<Producto> arrayProductos = new ArrayList<Producto>(); //arraylist que almacenará objetos de tipo Producto
 	
+	public LectorCsv() {
+		
+	}
 	
-	public void leerArchivo(String archivo) {
+	public boolean leerArchivo(String archivo) {
 		//contador para saltear las dos primeras iteraciones del while
 		int contador=0;
 		try {
@@ -36,17 +39,13 @@ public class LectorCsv {
 			sc.close();
 		} catch (Exception e) {
 			System.err.println(e);
+			return false;
 		}
-		
+		return true;
 	}
 
 	
 	public ArrayList<Producto> getArrayProductos() {
 		return arrayProductos;
 	}
-
-
-	
-	
-	
 }
