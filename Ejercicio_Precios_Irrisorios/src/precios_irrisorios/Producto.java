@@ -14,6 +14,7 @@ public class Producto implements Comparable<Producto> {
 		this.comercio = comercio;
 		this.promocion = promocion;
 	}
+	
 	public long getId() {
 		return id;
 	}

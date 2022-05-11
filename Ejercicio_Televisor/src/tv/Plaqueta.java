@@ -99,7 +99,7 @@ public class Plaqueta {
 				}
 			}
 			else {
-				System.err.println("valor incorrecto pete");
+				System.err.println("valor incorrecto");
 			}
 	}
 	

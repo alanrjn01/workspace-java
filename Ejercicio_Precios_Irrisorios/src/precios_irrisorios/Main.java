@@ -6,12 +6,13 @@ public class Main {
 		LectorCsv l1 = new LectorCsv();
 		l1.leerArchivo("precios_irrisorios_input.csv");
 		Programa p1 = new Programa();
-		p1.setListaDeProductos(l1.getArrayProductos());
-		p1.listadoOrdenadoAscendente();
-		p1.traerPrecioMasBajo("Pendrive KNGS");
-		p1.traerProductoPrecioMasAlto("Mouse Logitech");
-		p1.productosMejorPrecioSegunComercio("Cetrogar");
-		p1.precioPromedioProductoPromocionNoPromocion();
+		p1.setListaProductos(l1.getArrayProductos());
+		p1.productosOrdenadosAscendentemente();
+		p1.productoPrecioMasBajo("Pendrive KNGS");
+		p1.productoPrecioMasAltoConPromocionYSinPromocion("Mouse Logitech");
+		p1.productosEnComerciosConMejorPrecio("Cetrogar");
+		p1.precioPromedioParaCadaProducto();
+		p1.devolverCantidadDeProductosDeUnComercio("Fravega");
 	}
 
 }
