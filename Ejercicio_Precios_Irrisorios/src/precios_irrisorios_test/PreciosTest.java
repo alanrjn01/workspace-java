@@ -44,4 +44,14 @@ public class PreciosTest {
 		ArrayList<Producto> listaProductoPrecioMasBajo = programa.productoPrecioMasBajo("Pendrive KNGS");
 		assertEquals(23741 , listaProductoPrecioMasBajo.get(0).getId());
 	}
+	
+	@Test
+	public void productoPrecioMasAltoConPromocionYSinPromocionTest() {
+		lector.leerArchivo("precios_irrisorios_input.csv");
+		programa.setListaProductos(lector.getArrayProductos());
+		programa.productosOrdenadosAscendentemente();
+		ArrayList<Producto> listaProductoPrecioMasAltoConPromocionYSinPromocion = programa.productoPrecioMasAltoConPromocionYSinPromocion("Mouse Logitech");
+		System.out.println(listaProductoPrecioMasAltoConPromocionYSinPromocion.get(0).getId());
+		assertEquals(2305, listaProductoPrecioMasAltoConPromocionYSinPromocion.get(0).getId());
+	}
 }
