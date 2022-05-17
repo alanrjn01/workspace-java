@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -48,11 +50,31 @@ public class LectorCsv {
 	}
 	
 	public void escribirArchivoArrayList(ArrayList<Producto> lista,String ruta) throws FileNotFoundException {
-		pw = new PrintWriter(ruta + "/archivo.csv");
+		pw = new PrintWriter(ruta + "/salida.csv");
 		for (Producto producto : lista) {
 			//System.out.println("" + producto.getComercio()+" "+producto.getNombre()+" "+producto.getPrecio()+" "+producto.isPromocion());
 			pw.println(producto.getId()+","+producto.getNombre()+","+producto.getPrecio()+","+producto.getComercio()+","+producto.isPromocion());
 		}
+		pw.close();
+	}
+	
+	public void escribirArchivoLinkedHashMap(LinkedHashMap<Boolean,LinkedHashMap<String,Double>> mapa,String ruta) throws FileNotFoundException {
+		pw = new PrintWriter(ruta + "/salida.csv");
+		int bandera=0;
+		for (Map.Entry<Boolean,LinkedHashMap<String,Double>> entry : mapa.entrySet()) {
+				if(bandera==0) {
+					pw.println("Precios promedio con promocion: " + entry.getValue());
+					bandera=1;
+				}else {
+					pw.println("Precios promedio sin promocion: " + entry.getValue());
+				}
+			}
+		pw.close();
+	}
+	
+	public void escribirArchivoEntero(String nombreComercio, int contador,String ruta) throws FileNotFoundException {
+		pw = new PrintWriter(ruta + "/salida.csv");
+		pw.println("Cantidad de productos de la empresa "+nombreComercio+": "+contador);
 		pw.close();
 	}
 
