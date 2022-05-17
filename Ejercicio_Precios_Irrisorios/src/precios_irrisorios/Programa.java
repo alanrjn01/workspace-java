@@ -20,7 +20,7 @@ public class Programa {
 		return listaDeProductosAscendentemente;
 	}
 	
-	//a partir del nombre de un producto ingresado por parámetro obtengo un arraylist con el producto
+	//a partir del nombre de un producto ingresado por parï¿½metro obtengo un arraylist con el producto
 	//o mas de un producto si es que distintas empresas poseen dicho producto al mismo precio bajo
 	public ArrayList<Producto> productoPrecioMasBajo(String nombreProducto) {
 		ArrayList<Producto> productoPrecioMasBajo = new ArrayList<Producto>();
@@ -36,9 +36,9 @@ public class Programa {
 		return productoPrecioMasBajo;
 	}
 	
-	//dado el nombre de un producto busco el precio más alto con promoción y sin promoción
+	//dado el nombre de un producto busco el precio mï¿½s alto con promociï¿½n y sin promociï¿½n
 	//la lista al estar ordenada descendentemente el primero que se encuentra es evidentemente el de mayor precio, para agregarlo
-	//utilizo una bandera y ya las demás comprobaciones se realizan por si existe otro producto con el mismo precio pero de otra empresa
+	//utilizo una bandera y ya las demï¿½s comprobaciones se realizan por si existe otro producto con el mismo precio pero de otra empresa
 	//el segundo for realiza lo mismo pero buscando el precio mas alto sin promocion
 	public ArrayList<Producto> productoPrecioMasAltoConPromocionYSinPromocion(String nombreProducto){
 		ArrayList<Producto> productosConPromocionYSinPromocion = new ArrayList<Producto>();
@@ -71,17 +71,17 @@ public class Programa {
 	}
 	
 	//System.out.println("Variable I:" + this.listaProductosOrdenadaAscendente.get(i).getComercio()+" "+this.listaProductosOrdenadaAscendente.get(i).getNombre()+" "+this.listaProductosOrdenadaAscendente.get(i).getPrecio()+" "+this.listaProductosOrdenadaAscendente.get(i).isPromocion());
-	//Método 4
+	//Mï¿½todo 4
 	//recorro la lista de productos ordenada de manera ascendente (menor a mayor).
-	//luego entro en el condicional if que comprueba si el nombre del comercio de la posición que estoy iterando de la lista de productos
-	//es igual al que se ingresa por parámetro.
-	//creo otro for para iterar sobre la lista de productos y asi comparar el elemento de la primera iteración con el de la segunda iteración.
-	//el siguiente if hace compara que los elementos concuerden con los parámetros que busco:
+	//luego entro en el condicional if que comprueba si el nombre del comercio de la posiciï¿½n que estoy iterando de la lista de productos
+	//es igual al que se ingresa por parï¿½metro.
+	//creo otro for para iterar sobre la lista de productos y asi comparar el elemento de la primera iteraciï¿½n con el de la segunda iteraciï¿½n.
+	//el siguiente if hace compara que los elementos concuerden con los parï¿½metros que busco:
 	//(nombres iguales, que el elemento "i" tenga precio menor a "j" y que sean de empresas distintas).
 	//Utilizo una bandera la cual en la primera vez agrega un elemento a la lista de productosConMejorPrecio:
 	//(esto funciona porque la lista esta ordenada de menor a mayor, por lo cual el primer elemento que encuentre y
-	//haya pasado las validaciones anteriores, siempre será el de mejor precio por producto de la empresa en cuestión)
-	//en el else if (que se ejecutará luego de la primera vez) compruebo que el elemento que haya pasado las validaciones no tenga el mismo nombre que el último
+	//haya pasado las validaciones anteriores, siempre serï¿½ el de mejor precio por producto de la empresa en cuestiï¿½n)
+	//en el else if (que se ejecutarï¿½ luego de la primera vez) compruebo que el elemento que haya pasado las validaciones no tenga el mismo nombre que el ï¿½ltimo
 	//agregado en la lista de productosConMejorPrecio para evitar repetir productos
 	public ArrayList<Producto> productosEnComerciosConMejorPrecio(String nombreComercio){
 		ArrayList<Producto> productosConMejorPrecioPorEmpresa = new ArrayList<Producto>();
@@ -105,9 +105,9 @@ public class Programa {
 		return productosConMejorPrecioPorEmpresa;	
 	}
 	
-	//retorno un linkedhashmap con estados booleanos como key (indica si está en promoción o no)
+	//retorno un linkedhashmap con estados booleanos como key (indica si estï¿½ en promociï¿½n o no)
 	//y valores con un linkedhashmap que posee como clave el nombre de producto y como valor el precio promedio para dicho producto
-	//con el primer for agrego en el map precios promedio con promoción por cada producto y en el segundo los que no tengan promocion
+	//con el primer for agrego en el map precios promedio con promociï¿½n por cada producto y en el segundo los que no tengan promocion
 	public LinkedHashMap<Boolean,LinkedHashMap<String,Double>> precioPromedioParaCadaProducto(){
 		LinkedHashMap<String,Double> mapaConPreciosPromedioPromocion = new LinkedHashMap<String,Double>();
 		LinkedHashMap<String,Double> mapaConPreciosPromedioSinPromocion = new LinkedHashMap<String,Double>();
@@ -122,7 +122,6 @@ public class Programa {
 		}
 		mapas.put(true,mapaConPreciosPromedioPromocion);
 		mapas.put(false,mapaConPreciosPromedioSinPromocion);
-		System.out.println(mapas);
 		return mapas;
 	}
 	
@@ -134,11 +133,10 @@ public class Programa {
 			if(producto.getComercio().equals(nombreComercio))
 				contador++;
 		}
-		System.out.println(contador);
 		return contador;
 	}
 	
-	//getters de precios con promoción y sin promoción
+	//getters de precios con promociï¿½n y sin promociï¿½n
 	
 	public double getPrecioPromedioPromocion(String nombreProducto) {
 		double almacenador=0;
